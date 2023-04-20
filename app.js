@@ -26,7 +26,7 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     checkFiletype(file, cb);
   },
-}).single("myFile");
+}).fields([{ name: "myFile", maxCount: 2 }]);
 
 // check file type
 const checkFiletype = (file, cb) => {
@@ -53,22 +53,12 @@ app.post("/upload", (req, res) => {
       });
     } 
     else {
-      if (req.file == undefined) {
-        res.render("index", {
-          msg: 'Error:No file Selected',
-        });
-      }
-      else{
-        res.render('index',{
-            msg:'File Uploaded',
-            file:`upload/${req.file.filename}`
-        })
-      }
-
+      res.render("index", {
+        msg: "File Uploaded",
+      });
     }
   });
 });
-app.listen(port, "localhost", (req, res) => {
-  // res.send("app is listing on port 3000")
+app.listen(port, "localhost", () => {
   console.log("app is runnnig");
 });

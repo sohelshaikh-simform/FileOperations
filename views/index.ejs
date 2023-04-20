@@ -19,7 +19,7 @@
         <div class="file-field input-field">
           <div class="btn grey">
             <span>File</span>
-            <input type="file" name="myFile" />
+            <input type="file" name="myFile" multiple/>
           </div>
           <div class="file-path-wrapper">
             <input
@@ -31,16 +31,8 @@
         <button class="btn" type="submit">Submit</button>
       </form>
       <br>
-      <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img" alt="">
     </div>
 
-    <!-- <div class="container">
-      <h1>File Upload</h1>
-      <form action="/upload">
-        <span>File</span>
-        <input type="file" name="myFile" id="" />
-      </form>
-    </div> -->
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
