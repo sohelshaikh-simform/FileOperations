@@ -4,7 +4,7 @@ const port = 2000;
 const path = require("path");
 const multer = require("multer");
 app.set("view engine", "ejs");
-// app.use
+
 
 app.use(express.static("./public"));
 
@@ -18,8 +18,8 @@ const storage = multer.diskStorage({
     );
   },
 });
-// Init Upload
 
+// Init Upload
 const upload = multer({
   storage: storage,
   limits: { fileSize: 1000000 },
@@ -45,6 +45,7 @@ const checkFiletype = (file, cb) => {
 app.get("", (req, res) => {
   res.render("index");
 });
+
 app.post("/upload", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
@@ -59,6 +60,7 @@ app.post("/upload", (req, res) => {
     }
   });
 });
+
 app.listen(port, "localhost", () => {
   console.log("app is runnnig");
 });
